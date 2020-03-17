@@ -121,36 +121,36 @@ The Kubernetes Ingress Controller, The Custom Resource Way.
     
     ---
     apiVersion: traefik.containo.us/v1alpha1
-      kind: IngressRouteTCP
-      metadata:
-        name: ingressroute.tcp
+    kind: IngressRouteTCP
+    metadata:
+      name: ingressroute.tcp
       namespace: default
       
-      spec:
-        entryPoints:
-          - tcpep
-        routes:
-          - match: HostSNI(`bar`)
-            kind: Rule
-            services:
-              - name: whoamitcp
-                port: 8080
+    spec:
+      entryPoints:
+        - tcpep
+      routes:
+        - match: HostSNI(`bar`)
+          kind: Rule
+          services:
+          - name: whoamitcp
+            port: 8080
         
     ---
     apiVersion: traefik.containo.us/v1alpha1
-       kind: IngressRouteUDP
-       metadata:
-         name: ingressroute.udp
-         namespace: default
+    kind: IngressRouteUDP
+    metadata:
+       name: ingressroute.udp
+       namespace: default
          
-       spec:
-         entryPoints:
-           - fooudp
-         routes:
-           - kind: Rule
-             services:
-               - name: whoamiudp
-                 port: 8080
+    spec:
+       entryPoints:
+         - fooudp
+       routes:
+         - kind: Rule
+           services:
+           - name: whoamiudp
+             port: 8080
     ```
     
     ```yaml tab="Whoami"
